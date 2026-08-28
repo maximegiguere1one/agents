@@ -1,5 +1,7 @@
 # Claude Code settings and local files
-.claude/
+.claude/*
+# ...sauf la config partagée du marketplace de skills
+!.claude/settings.json
 .DS_Store
 settings.local.json
 
