@@ -9,12 +9,14 @@ A comprehensive collection of specialized AI agents designed to accelerate and e
    git clone https://github.com/contains-studio/agents.git
    ```
 
-2. **Copy to your Claude Code agents directory:**
+2. **Install agents and skills:**
    ```bash
-   cp -r agents/* ~/.claude/agents/
+   cd agents
+   ./install.sh            # into ~/.claude (all projects)
+   ./install.sh --project  # or into the current project's .claude/
    ```
-   
-   Or manually copy all the agent files to your `~/.claude/agents/` directory.
+
+   The script copies every agent `.md` into `~/.claude/agents/` and every folder in `skills/` into `~/.claude/skills/`.
 
 3. **Restart Claude Code** to load the new agents.
 
@@ -29,6 +31,8 @@ Agents are automatically available in Claude Code. Simply describe your task and
 - "What's trending on TikTok that we could build?" → `trend-researcher`
 - "Our app reviews are dropping, what's wrong?" → `feedback-synthesizer`
 - "Make this loading screen more fun" → `whimsy-injector`
+- "Why don't our product pages sell?" → `cro-specialist` + `product-page-optimizer`
+- "Redesign the store, ultra modern, zero AI look" → `anti-ai-design-director` + `storefront-designer`
 
 ## 📁 Directory Structure
 
@@ -37,11 +41,30 @@ Agents are organized by department for easy discovery:
 ```
 contains-studio-agents/
 ├── design/
+│   ├── anti-ai-design-director.md
 │   ├── brand-guardian.md
+│   ├── product-photo-art-director.md
+│   ├── storefront-designer.md
 │   ├── ui-designer.md
 │   ├── ux-researcher.md
 │   ├── visual-storyteller.md
 │   └── whimsy-injector.md
+├── ecommerce/
+│   ├── aov-maximizer.md
+│   ├── conversion-copywriter.md
+│   ├── cro-specialist.md
+│   ├── ecommerce-analyst.md
+│   ├── paid-creative-strategist.md
+│   ├── product-page-optimizer.md
+│   ├── retention-email-strategist.md
+│   └── shopify-theme-developer.md
+├── skills/
+│   ├── ab-test-planner/SKILL.md
+│   ├── anti-ai-design/SKILL.md
+│   ├── cro-audit/SKILL.md
+│   ├── ecommerce-copy/SKILL.md
+│   ├── pdp-blueprint/SKILL.md
+│   └── shopify-section-builder/SKILL.md
 ├── engineering/
 │   ├── ai-engineer.md
 │   ├── backend-architect.md
@@ -108,7 +131,21 @@ contains-studio-agents/
 - **tiktok-strategist** - Create shareable marketing moments
 - **twitter-engager** - Ride trends to viral engagement
 
+### E-commerce Department (`ecommerce/`)
+Built for Shopify / DTC stores, bilingual-aware (Quebec French + English). Agents that touch the store don't restrict `tools`, so they inherit your MCP tools (e.g. the Shopify connector).
+- **cro-specialist** - Find where the funnel leaks and fix it, with a scored backlog
+- **product-page-optimizer** - Product pages that answer every buying question
+- **aov-maximizer** - Bigger, profitable baskets: thresholds, bundles, cross-sells
+- **conversion-copywriter** - Specific, human copy in FR-CA/EN, zero AI clichés
+- **retention-email-strategist** - Email/SMS flows that bring buyers back (CASL-aware)
+- **ecommerce-analyst** - Sales, funnel, cohorts, RFM and test readouts from store data
+- **shopify-theme-developer** - OS 2.0 sections, speed, accessibility, safe previews
+- **paid-creative-strategist** - Honest, scroll-stopping ad creative and test plans
+
 ### Design Department (`design/`)
+- **anti-ai-design-director** - Remove the "AI look"; make work feel studio-made
+- **storefront-designer** - Modern editorial storefronts with a full design system
+- **product-photo-art-director** - Real, consistent product photography that sells
 - **brand-guardian** - Keep visual identity consistent everywhere
 - **ui-designer** - Design interfaces developers can actually build
 - **ux-researcher** - Turn user insights into product improvements
@@ -134,6 +171,16 @@ contains-studio-agents/
 - **tool-evaluator** - Choose tools that actually help
 - **workflow-optimizer** - Eliminate workflow bottlenecks
 
+## 🧰 Skills (`skills/`)
+
+Skills are step-by-step playbooks agents (or you) load on demand. Install into `~/.claude/skills/`.
+- **anti-ai-design** - Banned AI/template patterns, replacements, recipes and review rubric
+- **cro-audit** - Funnel measurement, full store checklist and ICE backlog
+- **pdp-blueprint** - Product page structure, metafield map and copy slots
+- **shopify-section-builder** - Safe workflow and template for OS 2.0 sections
+- **ecommerce-copy** - Copy templates, Quebec French rules, banned AI phrases (FR/EN)
+- **ab-test-planner** - Test cards, sample size math and decision rules
+
 ## 🎁 Bonus Agents
 - **studio-coach** - Rally the AI troops to excellence
 - **joker** - Lighten the mood with tech humor
@@ -144,6 +191,7 @@ Some agents trigger automatically in specific contexts:
 - **studio-coach** - When complex multi-agent tasks begin or agents need guidance
 - **test-writer-fixer** - After implementing features, fixing bugs, or modifying code
 - **whimsy-injector** - After UI/UX changes
+- **anti-ai-design-director** - After any UI, landing page or storefront is generated
 - **experiment-tracker** - When feature flags are added
 
 ## 💡 Best Practices
